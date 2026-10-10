@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flagship Product Specifications — Phone Culture</title>
+  <meta name="description" content="View full technical specifications, official warranty coverage, and genuine pricing at Phone Culture Sri Lanka.">
+  <link rel="icon" type="image/png" href="assets/logo/phone-culture-logo.png">
+
+  <!-- Google Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=SF+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    .product-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+      margin-top: 24px;
+    }
+
+    .p-gallery-container {
+      position: sticky;
+      top: 100px;
+    }
+
+    .p-main-display {
+      background: radial-gradient(circle, #F8F9FD 0%, #EEF1F6 100%);
+      border-radius: var(--radius-xl);
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 480px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border-light);
+    }
+
+    .p-main-display img {
+      max-height: 380px;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.12));
+      transition: transform var(--transition-smooth), opacity 0.2s ease;
+    }
+
+    .p-main-display:hover img {
+      transform: scale(1.05);
+    }
+
+    .p-gallery-thumbs {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
+
+    .p-thumb-item {
+      width: 80px;
+      height: 80px;
+      border-radius: var(--radius-md);
+      background: var(--bg-secondary);
+      border: 2px solid transparent;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      flex-shrink: 0;
+    }
+
+    .p-thumb-item.active {
+      border-color: var(--pc-magenta);
+      background: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(229, 46, 113, 0.2);
+    }
+
+    .p-thumb-item img {
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    /* Variant Selectors */
+    .p-color-selector, .p-storage-selector {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .p-color-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      background: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      transition: all var(--transition-fast);
+    }
+
+    .p-color-pill.active {
+      border-color: var(--pc-magenta);
+      background: var(--pc-gradient-subtle);
+      color: var(--pc-magenta);
+      box-shadow: 0 4px 12px rgba(229, 46, 113, 0.15);
+    }
+
+    .p-color-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+    }
+
+    .p-storage-pill {
+      padding: 10px 20px;
+      border-radius: var(--radius-md);
+      background: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      transition: all var(--transition-fast);
+    }
+
+    .p-storage-pill.active {
+      border-color: var(--text-primary);
+      background: var(--text-primary);
+      color: #FFFFFF;
+    }
+
+    /* Tabs Area */
+    .p-tabs-header {
+      display: flex;
+      gap: 32px;
+      border-bottom: 2px solid var(--border-light);
+      margin: 80px 0 36px 0;
+      overflow-x: auto;
+    }
+
+    .p-tab-btn {
+      padding: 14px 4px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .p-tab-btn.active {
+      color: var(--text-primary);
+      border-color: var(--pc-magenta);
+    }
+
+    .p-tab-panel {
+      display: none;
+      animation: fadeInTab 0.3s ease;
+    }
+
+    .p-tab-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeInTab {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .spec-grid-table {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .spec-row-item {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      padding: 18px 24px;
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .spec-key {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .spec-val {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .box-content-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    @media (max-width: 1023px) {
+      .product-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .p-gallery-container {
+        position: static;
+      }
+      .spec-grid-table {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="scroll-progress-bar"></div>
+  <div class="custom-cursor-dot"></div>
+  <div class="custom-cursor-ring"><span class="custom-cursor-text"></span></div>
+  <div class="page-transition-curtain">
+    <img src="assets/logo/phone-culture-logo.png" alt="Phone Culture" class="page-transition-logo">
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo-link">
+        <div class="brand-emblem-wrapper">
+          <img src="assets/logo/phone-culture-logo.png" alt="Phone Culture">
+        </div>
+        <div class="brand-typography">
+          <span class="brand-title">PHONE <span>CULTURE</span></span>
+          <span class="brand-subtitle">GAMPOLA • SRI LANKA</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="shop.html?brand=Apple" class="nav-link">iPhone</a>
+        <a href="shop.html?brand=Samsung" class="nav-link">Samsung</a>
+        <a href="shop.html?brand=Xiaomi" class="nav-link">Xiaomi / Redmi</a>
+        <a href="shop.html?category=Accessories" class="nav-link">Accessories</a>
+        <a href="shop.html?deals=true" class="nav-link">Deals</a>
+        <a href="compare.html" class="nav-link">Compare</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-btn-icon nav-search-trigger" title="Search" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <a href="wishlist.html" class="nav-btn-icon" title="Wishlist" aria-label="Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="nav-counter-badge wishlist-counter-badge">0</span>
+        </a>
+        <button class="nav-btn-icon" onclick="openCartDrawer()" title="Cart" aria-label="Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="nav-counter-badge cart-counter-badge">0</span>
+        </button>
+        <button class="mobile-menu-toggle" aria-label="Toggle Navigation Menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Product Detail Section -->
+  <main style="padding-top: calc(var(--nav-height) + 30px); padding-bottom: 80px;">
+    <div class="container">
+      <!-- Breadcrumbs -->
+      <nav style="display: flex; gap: 8px; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> <span>/</span>
+        <a href="shop.html">Shop</a> <span>/</span>
+        <span id="p-breadcrumb-category">Category</span> <span>/</span>
+        <strong id="p-breadcrumb-name" style="color: var(--text-primary);">Product</strong>
+      </nav>
+
+      <div class="product-detail-grid">
+        <!-- Gallery Left Column -->
+        <div class="p-gallery-container">
+          <div class="p-main-display">
+            <img id="p-main-image" src="" alt="Product Main Image">
+          </div>
+          <div class="p-gallery-thumbs" id="p-gallery-thumbs">
+            <!-- Thumbs injected by product.js -->
+          </div>
+        </div>
+
+        <!-- Information Right Column -->
+        <div class="p-info-container">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+            <span class="pill-badge light" id="p-brand">Apple</span>
+            <span class="pill-badge gradient" id="p-badge">FLAGSHIP</span>
+          </div>
+
+          <h1 id="p-name" style="font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 800; line-height: 1.15; margin-bottom: 12px;">
+            Product Name
+          </h1>
+
+          <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 20px;">
+            <div style="color: #FFB800; font-size: 0.95rem;">
+              <i class="fa-solid fa-star"></i>
+              <strong id="p-rating" style="color: var(--text-primary); margin-left: 4px;">5.0</strong>
+            </div>
+            <span id="p-reviews" style="font-size: 0.85rem; color: var(--text-muted);">(42 Verified Reviews)</span>
+            <span style="color: var(--border-medium);">•</span>
+            <span id="p-stock-status" style="font-size: 0.85rem; font-weight: 700; color: #16A34A;">
+              <i class="fa-solid fa-circle-check"></i> In Stock (Colombo Store)
+            </span>
+          </div>
+
+          <p id="p-short-desc" style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 28px;">
+            Loading description...
+          </p>
+
+          <!-- Price Display -->
+          <div style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 30px; padding: 18px 24px; background: var(--bg-secondary); border-radius: var(--radius-md);">
+            <div id="p-current-price" style="font-size: 2.2rem; font-weight: 800; color: var(--text-primary);">
+              Rs. 0
+            </div>
+            <div id="p-old-price" style="font-size: 1.2rem; color: var(--text-light); text-decoration: line-through;">
+              Rs. 0
+            </div>
+          </div>
+
+          <!-- Color Selector -->
+          <div style="margin-bottom: 24px;">
+            <label style="font-size: 0.88rem; font-weight: 700; color: var(--text-primary); display: block;">
+              Finish / Color: <strong id="p-selected-color-label" style="color: var(--pc-magenta);">Desert Titanium</strong>
+            </label>
+            <div class="p-color-selector" id="p-color-selector">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- Storage Selector -->
+          <div style="margin-bottom: 30px;">
+            <label style="font-size: 0.88rem; font-weight: 700; color: var(--text-primary); display: block; margin-bottom: 6px;">
+              Storage Configuration:
+            </label>
+            <div class="p-storage-selector" id="p-storage-selector">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- Quantity Stepper & Cart Actions -->
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+            <div class="cart-qty-stepper" style="padding: 8px 16px;">
+              <button class="qty-step-btn" onclick="stepQuantity(-1)" style="font-size: 1.2rem;" aria-label="Decrease quantity">−</button>
+              <span class="qty-value" id="p-quantity-val" style="font-size: 1rem; padding: 0 8px;">1</span>
+              <button class="qty-step-btn" onclick="stepQuantity(1)" style="font-size: 1.2rem;" aria-label="Increase quantity">+</button>
+            </div>
+
+            <button class="btn btn-primary btn-lg" onclick="handleProductAddToCart()" style="flex: 1;">
+              <i class="fa-solid fa-bag-shopping"></i> Add to Cart
+            </button>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 30px;">
+            <button class="btn btn-secondary" onclick="handleProductBuyNow()">
+              Buy Now & Checkout
+            </button>
+            <a id="p-whatsapp-btn" href="#" target="_blank" class="btn btn-whatsapp">
+              <i class="fa-brands fa-whatsapp"></i> Inquire on WhatsApp
+            </a>
+          </div>
+
+          <!-- Trust Badges Under Purchase -->
+          <div style="border-top: 1px solid var(--border-light); padding-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; font-size: 0.85rem; color: var(--text-secondary);">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <i class="fa-solid fa-shield-halved" style="color: var(--pc-magenta); font-size: 1.1rem;"></i>
+              <span>100% Original Sealed Box</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <i class="fa-solid fa-truck-fast" style="color: var(--pc-magenta); font-size: 1.1rem;"></i>
+              <span>Islandwide Safe Delivery</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs (Overview, Specs, Box, Warranty, FAQ) -->
+      <section>
+        <div class="p-tabs-header">
+          <button class="p-tab-btn active" data-tab="overview">Overview</button>
+          <button class="p-tab-btn" data-tab="specs">Full Specifications</button>
+          <button class="p-tab-btn" data-tab="box">What's in the Box</button>
+          <button class="p-tab-btn" data-tab="warranty">Warranty & Guarantee</button>
+          <button class="p-tab-btn" data-tab="faq">Showroom FAQs</button>
+        </div>
+
+        <!-- Tab 1: Overview -->
+        <div class="p-tab-panel active" data-panel="overview">
+          <div style="max-width: 800px; line-height: 1.8; color: var(--text-secondary); font-size: 1.05rem;">
+            <p style="margin-bottom: 20px;">
+              Purchased directly from authorized global supply channels. Every device is verified, factory-sealed, and eligible for international and local Sri Lankan hardware diagnostics.
+            </p>
+            <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary); margin: 24px 0 12px 0;">Key Innovations</h4>
+            <ul style="list-style: disc; padding-left: 20px; display: flex; flex-direction: column; gap: 10px;">
+              <li>Aerospace Grade Structure engineered with titanium microblasting and laser-welded substructure.</li>
+              <li>Super Retina XDR with ProMotion 120Hz LTPO dynamic refresh rate and outdoor peak brightness.</li>
+              <li>Next-Generation Camera System with hardware ray tracing and computational photographic profiles.</li>
+              <li>All-day thermal efficiency optimized for extended gaming and high-resolution video capture.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Tab 2: Specs Grid -->
+        <div class="p-tab-panel" data-panel="specs">
+          <div class="spec-grid-table" id="p-specs-grid">
+            <!-- Injected by product.js -->
+          </div>
+        </div>
+
+        <!-- Tab 3: What's in Box -->
+        <div class="p-tab-panel" data-panel="box">
+          <ul id="p-box-contents" style="max-width: 600px;">
+            <!-- Injected by product.js -->
+          </ul>
+        </div>
+
+        <!-- Tab 4: Warranty -->
+        <div class="p-tab-panel" data-panel="warranty">
+          <div style="background: #FFFFFF; border: 1px solid var(--border-light); padding: 30px; border-radius: var(--radius-lg); max-width: 760px;">
+            <h4 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 12px;">Phone Culture Comprehensive Protection</h4>
+            <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">
+              Every smartphone purchased at Phone Culture carries a 1-Year Official Hardware & Software Warranty covering manufacturing defects, logic board operations, and component integrity.
+            </p>
+            <p style="color: var(--text-secondary); line-height: 1.7;">
+              Apple devices also carry official 1-Year Apple Care international validity registerable via Apple Support and checking Apple ID coverage.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tab 5: FAQs -->
+        <div class="p-tab-panel" data-panel="faq">
+          <div style="display: flex; flex-direction: column; gap: 16px; max-width: 760px;">
+            <div style="background: #FFFFFF; border: 1px solid var(--border-light); padding: 20px; border-radius: var(--radius-md);">
+              <h5 style="font-size: 1rem; font-weight: 700; margin-bottom: 6px;">How does Islandwide Delivery work?</h5>
+              <p style="font-size: 0.92rem; color: var(--text-secondary);">We provide insured express courier delivery across all 25 districts in Sri Lanka. Orders in Colombo are delivered within 24 hours.</p>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid var(--border-light); padding: 20px; border-radius: var(--radius-md);">
+              <h5 style="font-size: 1rem; font-weight: 700; margin-bottom: 6px;">Can I inspect the phone in the Colombo store?</h5>
+              <p style="font-size: 0.92rem; color: var(--text-secondary);">Yes, you are warmly invited to visit our flagship Colombo showroom to experience device colors and finishes in person.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Products -->
+      <section style="margin-top: 100px;">
+        <div class="section-header text-left">
+          <span class="section-subtitle">RECOMMENDED TECH</span>
+          <h2 class="section-title">Complementary Flagships</h2>
+        </div>
+        <div class="products-grid" id="p-related-products-grid">
+          <!-- Injected by product.js -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 Phone Culture Gampola (No 374, Bothalapitiya, Gampola). All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Warranty Guide</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Drawer & Modals -->
+  <div class="cart-drawer-backdrop" id="cart-drawer-backdrop">
+    <aside class="cart-drawer" aria-label="Shopping Cart Drawer">
+      <div class="cart-drawer-header">
+        <h3 class="cart-drawer-title"><i class="fa-solid fa-bag-shopping" style="color: var(--pc-magenta);"></i> Your Bag</h3>
+        <button class="cart-drawer-close" id="cart-drawer-close" aria-label="Close Shopping Bag"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="cart-drawer-body" id="cart-drawer-items"></div>
+      <div class="cart-drawer-footer">
+        <div class="cart-summary-row"><span>Subtotal</span><strong id="cart-drawer-subtotal">Rs. 0</strong></div>
+        <div class="cart-summary-row"><span>Delivery</span><span id="cart-drawer-delivery">FREE</span></div>
+        <div class="cart-summary-total"><span>Total</span><span id="cart-drawer-total">Rs. 0</span></div>
+        <div class="cart-checkout-actions">
+          <a href="cart.html" class="btn btn-primary" id="cart-drawer-checkout-btn">Checkout</a>
+          <button class="btn btn-whatsapp" id="cart-drawer-whatsapp-btn"><i class="fa-brands fa-whatsapp"></i> Order via WhatsApp</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="search-modal-backdrop" id="search-modal-backdrop">
+    <div class="search-modal-card">
+      <div class="search-bar-wrap">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="search-input-main" class="search-input-main" placeholder="Search devices...">
+        <button class="search-close-btn" id="search-close-btn" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="search-results-container" id="search-results-container"></div>
+    </div>
+  </div>
+
+  <div class="quick-view-backdrop" id="quick-view-backdrop">
+    <div class="quick-view-card">
+      <button class="quick-view-close" id="quick-view-close" aria-label="Close Quick View"><i class="fa-solid fa-xmark"></i></button>
+      <div class="quick-view-grid" id="quick-view-content"></div>
+    </div>
+  </div>
+
+  <a href="https://wa.me/94770000000" target="_blank" class="floating-whatsapp-btn" title="Chat on WhatsApp" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+  <button class="back-to-top-btn" title="Scroll to Top" aria-label="Scroll to Top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/compare.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/product.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>

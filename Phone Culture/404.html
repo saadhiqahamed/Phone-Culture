@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Device Went Offline | Phone Culture</title>
+  <meta name="description" content="The requested page or device could not be found. Return to Phone Culture showroom.">
+  <link rel="icon" type="image/png" href="assets/logo/phone-culture-logo.png">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=SF+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body style="min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between;">
+
+  <div class="scroll-progress-bar"></div>
+  <div class="custom-cursor-dot"></div>
+  <div class="custom-cursor-ring"><span class="custom-cursor-text"></span></div>
+
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo-link">
+        <div class="brand-emblem-wrapper">
+          <img src="assets/logo/phone-culture-logo.png" alt="Phone Culture">
+        </div>
+        <div class="brand-typography">
+          <span class="brand-title">PHONE <span>CULTURE</span></span>
+          <span class="brand-subtitle">GAMPOLA • SRI LANKA</span>
+        </div>
+      </a>
+      <a href="index.html" class="btn btn-secondary btn-sm">Return Home</a>
+    </div>
+  </header>
+
+  <main style="padding-top: calc(var(--nav-height) + 60px); padding-bottom: 60px; text-align: center;">
+    <div class="container" style="max-width: 640px;">
+      <div style="width: 110px; height: 110px; border-radius: 50%; background: var(--bg-secondary); border: 1px solid var(--border-medium); display: flex; align-items: center; justify-content: center; margin: 0 auto 30px auto;">
+        <i class="fa-solid fa-signal" style="font-size: 2.8rem; color: var(--text-light);"></i>
+      </div>
+
+      <div style="font-size: 6rem; font-weight: 800; line-height: 1; letter-spacing: -0.04em; margin-bottom: 16px;">
+        <span style="background: var(--pc-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">404</span>
+      </div>
+
+      <h1 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 12px;">Looks like this device went offline.</h1>
+      <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 36px;">
+        The page or flagship unit you requested is unavailable or has moved to another section of the catalog.
+      </p>
+
+      <div style="display: flex; gap: 16px; justify-content: center;">
+        <a href="index.html" class="btn btn-primary btn-lg">Back to Home</a>
+        <a href="shop.html" class="btn btn-secondary btn-lg">Explore Shop</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" style="padding: 30px 0;">
+    <div class="container" style="text-align: center; font-size: 0.85rem; color: var(--text-muted);">
+      © 2026 Phone Culture Gampola (No 374, Bothalapitiya, Gampola). All rights reserved.
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>

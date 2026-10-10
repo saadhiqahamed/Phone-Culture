@@ -1,0 +1,332 @@
+/* ==========================================================================
+   PHONE CULTURE — RESPONSIVE STYLES
+   Breakpoints: 1200px, 1024px, 768px, 480px, 360px
+   ========================================================================== */
+
+/* Large Desktop (1440px+) */
+@media (min-width: 1440px) {
+  .hero-card-display {
+    max-width: 540px;
+  }
+  .hero-image-wrapper {
+    height: 480px;
+  }
+}
+
+/* Laptops & Small Desktops (1024px - 1200px) */
+@media (max-width: 1200px) {
+  .nav-links {
+    gap: 20px;
+  }
+  .hero-grid {
+    gap: 40px;
+  }
+  .footer-top {
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+  }
+  .footer-brand-info {
+    grid-column: span 4;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  .apple-grid-hero {
+    grid-template-columns: 1fr;
+  }
+  .apple-card-large {
+    min-height: 420px;
+  }
+  .apple-side-stack {
+    flex-direction: row;
+  }
+  .apple-card-compact {
+    flex: 1;
+    height: auto;
+  }
+  .samsung-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablets (768px - 1023px) */
+@media (max-width: 1023px) {
+  :root {
+    --nav-height: 72px;
+    --nav-height-scrolled: 64px;
+  }
+
+  /* Navigation Mobile Hamburger Toggle */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 320px;
+    background: #FFFFFF;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 100px 32px 40px 32px;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.12);
+    transform: translateX(100%);
+    transition: transform var(--transition-medium);
+    z-index: 1001;
+    gap: 20px;
+    overflow-y: auto;
+  }
+
+  .nav-links.active {
+    transform: translateX(0);
+  }
+
+  .nav-link {
+    font-size: 1.15rem;
+    font-weight: 600;
+    width: 100%;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    z-index: 1002;
+  }
+
+  /* Hero Stack */
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 50px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-metrics {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-floating-spec {
+    bottom: 10px;
+    right: 10px;
+  }
+
+  /* Brand Showcases */
+  .apple-side-stack {
+    flex-direction: column;
+  }
+  .samsung-grid {
+    grid-template-columns: 1fr;
+  }
+  .pixel-grid {
+    grid-template-columns: 1fr;
+  }
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .instagram-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .deals-banner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .countdown-timer-wrap {
+    justify-content: center;
+  }
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  .footer-brand-info {
+    grid-column: span 2;
+  }
+}
+
+/* Mobile Screens (up to 767px) */
+@media (max-width: 767px) {
+  :root {
+    --nav-height: 66px;
+  }
+
+  .container,
+  .container-wide {
+    padding: 0 18px;
+  }
+
+  .section-padding {
+    padding: 70px 0;
+  }
+
+  .brand-title {
+    font-size: 1.05rem;
+  }
+
+  .brand-subtitle {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 2.3rem;
+  }
+
+  .hero-card-display {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .hero-image-wrapper {
+    height: 320px;
+  }
+
+  .hero-floating-spec {
+    position: static;
+    margin-top: 16px;
+    width: 100%;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .category-card {
+    padding: 20px 16px;
+    min-height: 220px;
+  }
+
+  .category-card-img {
+    height: 90px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .product-card-thumb-wrap {
+    height: 190px;
+    padding: 14px;
+  }
+
+  .product-card-img {
+    max-height: 150px;
+  }
+
+  .product-card-body {
+    padding: 16px 14px;
+  }
+
+  .product-card-name {
+    font-size: 0.92rem;
+  }
+
+  .product-current-price {
+    font-size: 1.05rem;
+  }
+
+  .apple-card-large {
+    padding: 28px 20px;
+    min-height: 360px;
+  }
+
+  .apple-card-img-large {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: 200px;
+    margin-top: 24px;
+    justify-content: center;
+  }
+
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .instagram-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .deals-banner {
+    padding: 28px 20px;
+  }
+
+  .countdown-box {
+    padding: 8px 12px;
+    min-width: 58px;
+  }
+
+  .countdown-number {
+    font-size: 1.4rem;
+  }
+
+  .whatsapp-vip-banner {
+    padding: 36px 24px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-brand-info {
+    grid-column: span 1;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  /* Hide custom cursor on touch devices */
+  .custom-cursor-dot,
+  .custom-cursor-ring {
+    display: none !important;
+  }
+
+  /* Cart Drawer Fullscreen on Mobile */
+  .cart-drawer {
+    max-width: 100%;
+  }
+
+  /* Search Modal */
+  .search-modal-backdrop {
+    padding: 40px 14px 20px 14px;
+  }
+}
+
+/* Extra Small Phones (360px - 400px) */
+@media (max-width: 400px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+}

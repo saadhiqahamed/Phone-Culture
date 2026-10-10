@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop All Flagships & Accessories — Phone Culture Colombo</title>
+  <meta name="description" content="Browse our complete collection of Apple iPhones, Samsung Galaxy, Google Pixel, smartwatches, and accessories at Phone Culture Sri Lanka.">
+  <link rel="icon" type="image/png" href="assets/logo/phone-culture-logo.png">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=SF+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    .shop-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 40px;
+      margin-top: 36px;
+    }
+
+    .shop-sidebar {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-xs);
+      height: fit-content;
+      position: sticky;
+      top: 100px;
+    }
+
+    .filter-group {
+      margin-bottom: 28px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .filter-group:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .filter-group-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .filter-pill-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .filter-pill-btn {
+      text-align: left;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      transition: all var(--transition-fast);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .filter-pill-btn:hover {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+
+    .filter-pill-btn.active {
+      background: var(--pc-gradient-subtle);
+      color: var(--pc-magenta);
+      font-weight: 700;
+    }
+
+    .range-slider-input {
+      width: 100%;
+      accent-color: var(--pc-magenta);
+      margin: 12px 0 6px 0;
+    }
+
+    .shop-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      background: #FFFFFF;
+      padding: 18px 24px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+      margin-bottom: 30px;
+    }
+
+    .shop-sort-select {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-medium);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    @media (max-width: 1023px) {
+      .shop-layout {
+        grid-template-columns: 1fr;
+      }
+      .shop-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 320px;
+        z-index: 2500;
+        transform: translateX(-100%);
+        transition: transform var(--transition-medium);
+        overflow-y: auto;
+      }
+      .shop-sidebar.active-drawer {
+        transform: translateX(0);
+        box-shadow: 10px 0 30px rgba(0,0,0,0.2);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress-bar"></div>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor-dot"></div>
+  <div class="custom-cursor-ring"><span class="custom-cursor-text"></span></div>
+
+  <!-- Page Transition Curtain -->
+  <div class="page-transition-curtain">
+    <img src="assets/logo/phone-culture-logo.png" alt="Phone Culture" class="page-transition-logo">
+  </div>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo-link">
+        <div class="brand-emblem-wrapper">
+          <img src="assets/logo/phone-culture-logo.png" alt="Phone Culture">
+        </div>
+        <div class="brand-typography">
+          <span class="brand-title">PHONE <span>CULTURE</span></span>
+          <span class="brand-subtitle">GAMPOLA • SRI LANKA</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link active">Shop</a>
+        <a href="shop.html?brand=Apple" class="nav-link">iPhone</a>
+        <a href="shop.html?brand=Samsung" class="nav-link">Samsung</a>
+        <a href="shop.html?brand=Xiaomi" class="nav-link">Xiaomi / Redmi</a>
+        <a href="shop.html?category=Accessories" class="nav-link">Accessories</a>
+        <a href="shop.html?deals=true" class="nav-link">Deals</a>
+        <a href="compare.html" class="nav-link">Compare</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-btn-icon nav-search-trigger" title="Search" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <a href="wishlist.html" class="nav-btn-icon" title="Wishlist" aria-label="Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="nav-counter-badge wishlist-counter-badge">0</span>
+        </a>
+        <button class="nav-btn-icon" onclick="openCartDrawer()" title="Cart" aria-label="Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="nav-counter-badge cart-counter-badge">0</span>
+        </button>
+        <button class="mobile-menu-toggle" aria-label="Toggle Navigation Menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <main style="padding-top: calc(var(--nav-height) + 30px); padding-bottom: 80px; min-height: 85vh;">
+    <div class="container">
+      <div style="margin-bottom: 20px;">
+        <span class="pill-badge subtle-gradient">FLAGSHIP SHOWROOM INVENTORY</span>
+        <h1 style="font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 800; letter-spacing: -0.02em; margin-top: 10px;">
+          Explore Premium Technology
+        </h1>
+        <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 600px;">
+          Genuine sealed devices backed by official international Apple Care & Samsung warranty.
+        </p>
+      </div>
+
+      <div class="shop-layout">
+        <!-- Sidebar Filters -->
+        <aside class="shop-sidebar">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h3 style="font-size: 1.15rem; font-weight: 800;">Filters</h3>
+            <button id="mobile-filter-close-btn" style="display: none; font-size: 1.2rem;" aria-label="Close filters">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- Brand -->
+          <div class="filter-group">
+            <h4 class="filter-group-title">Brand</h4>
+            <div class="filter-pill-list">
+              <button class="filter-pill-btn active" data-filter-brand="All">All Brands</button>
+              <button class="filter-pill-btn" data-filter-brand="Apple">Apple</button>
+              <button class="filter-pill-btn" data-filter-brand="Samsung">Samsung</button>
+              <button class="filter-pill-btn" data-filter-brand="Xiaomi">Xiaomi / Redmi</button>
+              <button class="filter-pill-btn" data-filter-brand="Google">Google Pixel</button>
+              <button class="filter-pill-btn" data-filter-brand="OnePlus">OnePlus</button>
+              <button class="filter-pill-btn" data-filter-brand="Anker">Anker Innovations</button>
+              <button class="filter-pill-btn" data-filter-brand="Accessories">Accessories</button>
+            </div>
+          </div>
+
+          <!-- Category -->
+          <div class="filter-group">
+            <h4 class="filter-group-title">Category</h4>
+            <div class="filter-pill-list">
+              <button class="filter-pill-btn active" data-filter-category="All">All Categories</button>
+              <button class="filter-pill-btn" data-filter-category="iPhone">iPhone Series</button>
+              <button class="filter-pill-btn" data-filter-category="Samsung">Samsung Flagships</button>
+              <button class="filter-pill-btn" data-filter-category="Google Pixel">Google Pixel</button>
+              <button class="filter-pill-btn" data-filter-category="Smart Watches">Smart Watches</button>
+              <button class="filter-pill-btn" data-filter-category="AirPods / Audio">AirPods & Audio</button>
+              <button class="filter-pill-btn" data-filter-category="Chargers">Chargers & Adapters</button>
+              <button class="filter-pill-btn" data-filter-category="Cases & Protection">Cases & Protection</button>
+            </div>
+          </div>
+
+          <!-- Price Range Slider -->
+          <div class="filter-group">
+            <h4 class="filter-group-title">Maximum Price</h4>
+            <input type="range" class="range-slider-input" id="shop-price-slider" min="10000" max="700000" step="10000" value="700000">
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; color: var(--text-primary);">
+              <span>Rs. 10,000</span>
+              <span id="shop-price-val">Rs. 700,000</span>
+            </div>
+          </div>
+
+          <!-- Stock Status -->
+          <div class="filter-group">
+            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.9rem; font-weight: 600;">
+              <input type="checkbox" id="shop-stock-checkbox" style="width: 18px; height: 18px; accent-color: var(--pc-magenta);">
+              <span>Show In-Stock Only</span>
+            </label>
+          </div>
+
+          <button class="btn btn-secondary btn-sm" onclick="resetFilters()" style="width: 100%; margin-top: 10px;">
+            Reset Filters
+          </button>
+        </aside>
+
+        <!-- Product Grid Main Area -->
+        <section>
+          <div class="shop-top-bar">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <button class="btn btn-secondary btn-sm" id="mobile-filter-open-btn" style="display: none;">
+                <i class="fa-solid fa-filter"></i> Filters
+              </button>
+              <span id="shop-results-count" style="font-size: 0.92rem; font-weight: 600; color: var(--text-secondary);">
+                Loading devices...
+              </span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <label for="shop-sort-select" style="font-size: 0.88rem; color: var(--text-muted); font-weight: 500;">Sort By:</label>
+              <select id="shop-sort-select" class="shop-sort-select">
+                <option value="featured">Featured First</option>
+                <option value="newest">Newest Arrivals</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="name-asc">Device Name (A-Z)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Grid -->
+          <div class="products-grid" id="shop-products-grid">
+            <!-- Rendered by js/shop.js -->
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 Phone Culture Gampola (No 374, Bothalapitiya, Gampola). All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Warranty Guide</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide Cart Drawer & Modals -->
+  <div class="cart-drawer-backdrop" id="cart-drawer-backdrop">
+    <aside class="cart-drawer" aria-label="Shopping Cart Drawer">
+      <div class="cart-drawer-header">
+        <h3 class="cart-drawer-title"><i class="fa-solid fa-bag-shopping" style="color: var(--pc-magenta);"></i> Your Bag</h3>
+        <button class="cart-drawer-close" id="cart-drawer-close" aria-label="Close Shopping Bag"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="cart-drawer-body" id="cart-drawer-items"></div>
+      <div class="cart-drawer-footer">
+        <div class="cart-summary-row"><span>Subtotal</span><strong id="cart-drawer-subtotal">Rs. 0</strong></div>
+        <div class="cart-summary-row"><span>Delivery</span><span id="cart-drawer-delivery">FREE</span></div>
+        <div class="cart-summary-total"><span>Total</span><span id="cart-drawer-total">Rs. 0</span></div>
+        <div class="cart-checkout-actions">
+          <a href="cart.html" class="btn btn-primary" id="cart-drawer-checkout-btn">Checkout</a>
+          <button class="btn btn-whatsapp" id="cart-drawer-whatsapp-btn"><i class="fa-brands fa-whatsapp"></i> Order via WhatsApp</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="search-modal-backdrop" id="search-modal-backdrop">
+    <div class="search-modal-card">
+      <div class="search-bar-wrap">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="search-input-main" class="search-input-main" placeholder="Search devices...">
+        <button class="search-close-btn" id="search-close-btn" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="search-results-container" id="search-results-container"></div>
+    </div>
+  </div>
+
+  <div class="quick-view-backdrop" id="quick-view-backdrop">
+    <div class="quick-view-card">
+      <button class="quick-view-close" id="quick-view-close" aria-label="Close Quick View"><i class="fa-solid fa-xmark"></i></button>
+      <div class="quick-view-grid" id="quick-view-content"></div>
+    </div>
+  </div>
+
+  <!-- Floating Buttons -->
+  <a href="https://wa.me/94770000000" target="_blank" class="floating-whatsapp-btn" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+  <button class="back-to-top-btn" title="Scroll to Top" aria-label="Scroll to Top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/compare.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/shop.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>

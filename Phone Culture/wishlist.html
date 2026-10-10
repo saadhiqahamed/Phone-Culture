@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Wishlist — Phone Culture Colombo</title>
+  <meta name="description" content="View your saved Apple and Android devices at Phone Culture Sri Lanka.">
+  <link rel="icon" type="image/png" href="assets/logo/phone-culture-logo.png">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=SF+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div class="scroll-progress-bar"></div>
+  <div class="custom-cursor-dot"></div>
+  <div class="custom-cursor-ring"><span class="custom-cursor-text"></span></div>
+  <div class="page-transition-curtain">
+    <img src="assets/logo/phone-culture-logo.png" alt="Phone Culture" class="page-transition-logo">
+  </div>
+
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo-link">
+        <div class="brand-emblem-wrapper">
+          <img src="assets/logo/phone-culture-logo.png" alt="Phone Culture">
+        </div>
+        <div class="brand-typography">
+          <span class="brand-title">PHONE <span>CULTURE</span></span>
+          <span class="brand-subtitle">GAMPOLA • SRI LANKA</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="shop.html?brand=Apple" class="nav-link">iPhone</a>
+        <a href="shop.html?brand=Samsung" class="nav-link">Samsung</a>
+        <a href="shop.html?brand=Xiaomi" class="nav-link">Xiaomi / Redmi</a>
+        <a href="shop.html?category=Accessories" class="nav-link">Accessories</a>
+        <a href="shop.html?deals=true" class="nav-link">Deals</a>
+        <a href="compare.html" class="nav-link">Compare</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-btn-icon nav-search-trigger" title="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <a href="wishlist.html" class="nav-btn-icon active" title="Wishlist"><i class="fa-solid fa-heart" style="color: var(--pc-magenta);"></i><span class="nav-counter-badge wishlist-counter-badge">0</span></a>
+        <button class="nav-btn-icon" onclick="openCartDrawer()" title="Cart"><i class="fa-solid fa-bag-shopping"></i><span class="nav-counter-badge cart-counter-badge">0</span></button>
+        <button class="mobile-menu-toggle"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding-top: calc(var(--nav-height) + 30px); padding-bottom: 80px; min-height: 85vh;">
+    <div class="container">
+      <div style="margin-bottom: 30px;">
+        <span class="pill-badge subtle-gradient">SAVED FAVORITES</span>
+        <h1 style="font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 800; margin-top: 8px;">My Saved Devices</h1>
+        <p style="font-size: 1.05rem; color: var(--text-secondary);">Keep track of devices you intend to inspect or acquire.</p>
+      </div>
+
+      <div class="products-grid" id="wishlist-products-grid">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 Phone Culture Gampola (No 374, Bothalapitiya, Gampola). All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Warranty Guide</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Drawer & Modals -->
+  <div class="cart-drawer-backdrop" id="cart-drawer-backdrop">
+    <aside class="cart-drawer">
+      <div class="cart-drawer-header">
+        <h3 class="cart-drawer-title"><i class="fa-solid fa-bag-shopping" style="color: var(--pc-magenta);"></i> Your Bag</h3>
+        <button class="cart-drawer-close" id="cart-drawer-close"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="cart-drawer-body" id="cart-drawer-items"></div>
+      <div class="cart-drawer-footer">
+        <div class="cart-summary-row"><span>Subtotal</span><strong id="cart-drawer-subtotal">Rs. 0</strong></div>
+        <div class="cart-summary-row"><span>Delivery</span><span id="cart-drawer-delivery">FREE</span></div>
+        <div class="cart-summary-total"><span>Total</span><span id="cart-drawer-total">Rs. 0</span></div>
+        <div class="cart-checkout-actions">
+          <a href="cart.html" class="btn btn-primary">Checkout</a>
+          <button class="btn btn-whatsapp" id="cart-drawer-whatsapp-btn"><i class="fa-brands fa-whatsapp"></i> Order via WhatsApp</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="search-modal-backdrop" id="search-modal-backdrop">
+    <div class="search-modal-card">
+      <div class="search-bar-wrap">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="search-input-main" class="search-input-main" placeholder="Search devices...">
+        <button class="search-close-btn" id="search-close-btn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="search-results-container" id="search-results-container"></div>
+    </div>
+  </div>
+
+  <div class="quick-view-backdrop" id="quick-view-backdrop">
+    <div class="quick-view-card">
+      <button class="quick-view-close" id="quick-view-close"><i class="fa-solid fa-xmark"></i></button>
+      <div class="quick-view-grid" id="quick-view-content"></div>
+    </div>
+  </div>
+
+  <a href="https://wa.me/94770000000" target="_blank" class="floating-whatsapp-btn" title="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+  <button class="back-to-top-btn" title="Scroll to Top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/compare.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      renderWishlistPage();
+    });
+
+    function renderWishlistPage() {
+      const grid = document.getElementById("wishlist-products-grid");
+      if (!grid) return;
+
+      const wishlistIds = getWishlistItems();
+      const products = wishlistIds.map(id => getProductById(id)).filter(Boolean);
+
+      if (products.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 80px 20px;">
+            <i class="fa-regular fa-heart" style="font-size: 2.8rem; color: var(--text-light); margin-bottom: 16px;"></i>
+            <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 8px;">Your Wishlist is Empty</h3>
+            <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 24px;">Discover iPhones, Samsung flagships, and accessories to save here.</p>
+            <a href="shop.html" class="btn btn-primary btn-sm">Browse Catalogue</a>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = products.map(generateProductCardHTML).join("");
+      syncWishlistButtons();
+    }
+  </script>
+</body>
+</html>

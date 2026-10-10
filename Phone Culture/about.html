@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Phone Culture — Colombo Flagship Technology Store</title>
+  <meta name="description" content="Learn about Phone Culture, Sri Lanka's trusted destination for genuine Apple, Samsung, Google Pixel, and flagship smart technology.">
+  <link rel="icon" type="image/png" href="assets/logo/phone-culture-logo.png">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=SF+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div class="scroll-progress-bar"></div>
+  <div class="custom-cursor-dot"></div>
+  <div class="custom-cursor-ring"><span class="custom-cursor-text"></span></div>
+  <div class="page-transition-curtain">
+    <img src="assets/logo/phone-culture-logo.png" alt="Phone Culture" class="page-transition-logo">
+  </div>
+
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo-link">
+        <div class="brand-emblem-wrapper">
+          <img src="assets/logo/phone-culture-logo.png" alt="Phone Culture">
+        </div>
+        <div class="brand-typography">
+          <span class="brand-title">PHONE <span>CULTURE</span></span>
+          <span class="brand-subtitle">COLOMBO • SRI LANKA</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="shop.html?brand=Apple" class="nav-link">iPhone</a>
+        <a href="shop.html?brand=Samsung" class="nav-link">Samsung</a>
+        <a href="shop.html?category=Accessories" class="nav-link">Accessories</a>
+        <a href="shop.html?deals=true" class="nav-link">Deals</a>
+        <a href="compare.html" class="nav-link">Compare</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-btn-icon nav-search-trigger" title="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <a href="wishlist.html" class="nav-btn-icon" title="Wishlist"><i class="fa-regular fa-heart"></i><span class="nav-counter-badge wishlist-counter-badge">0</span></a>
+        <button class="nav-btn-icon" onclick="openCartDrawer()" title="Cart"><i class="fa-solid fa-bag-shopping"></i><span class="nav-counter-badge cart-counter-badge">0</span></button>
+        <button class="mobile-menu-toggle"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding-top: calc(var(--nav-height) + 40px); padding-bottom: 90px;">
+    <div class="container">
+      <!-- Hero -->
+      <div style="max-width: 800px; margin: 0 auto 70px auto; text-align: center;">
+        <span class="pill-badge subtle-gradient">OUR STORY & PHILOSOPHY</span>
+        <h1 style="font-size: clamp(2.4rem, 4.5vw, 3.6rem); font-weight: 800; line-height: 1.15; margin: 16px 0;">
+          Redefining the Smartphone Shopping Standard
+        </h1>
+        <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7;">
+          Phone Culture was founded with a singular conviction: technology enthusiasts in Sri Lanka deserve a transparent, authentic, and truly premium retail environment.
+        </p>
+      </div>
+
+      <!-- Story Grid -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 90px;">
+        <div style="background: radial-gradient(circle, #F8F9FD 0%, #EEF1F6 100%); border-radius: var(--radius-xl); padding: 50px; text-align: center; border: 1px solid var(--border-light);">
+          <img src="assets/logo/phone-culture-logo.png" alt="Phone Culture Emblem" style="width: 220px; height: 220px; object-fit: contain; margin: 0 auto; filter: drop-shadow(0 20px 30px rgba(229,46,113,0.3));">
+        </div>
+
+        <div>
+          <span class="pill-badge light">WHO WE ARE</span>
+          <h2 style="font-size: 2rem; font-weight: 800; margin: 12px 0 20px 0; line-height: 1.2;">
+            A Curated Destination for Genuine Technology
+          </h2>
+          <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 16px;">
+            In a market often crowded with ambiguous refurbished imports and unauthorized devices, Phone Culture stands as a beacon of uncompromising authenticity.
+          </p>
+          <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 24px;">
+            Every Apple iPhone, Samsung Galaxy, and Google Pixel handset entering our inventory is brand new, sealed in original factory packaging, and backed by verifiable hardware warranty registrations.
+          </p>
+          <div style="display: flex; gap: 24px;">
+            <div>
+              <strong style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); display: block;">100%</strong>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">Verified Factory Sealed</span>
+            </div>
+            <div>
+              <strong style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); display: block;">25+</strong>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">Districts Covered</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Pillars -->
+      <section style="background: #F8F9FB; border-radius: var(--radius-xl); padding: 70px 50px; margin-bottom: 90px; border: 1px solid var(--border-light);">
+        <div class="section-header">
+          <span class="section-subtitle">OUR COMMITMENTS</span>
+          <h2 class="section-title">The Three Pillars of Phone Culture</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+          <div style="background: #FFFFFF; padding: 36px 30px; border-radius: var(--radius-lg); border: 1px solid var(--border-light);">
+            <div style="width: 52px; height: 52px; border-radius: 14px; background: var(--pc-gradient-subtle); color: var(--pc-magenta); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 20px;">
+              <i class="fa-solid fa-gem"></i>
+            </div>
+            <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 10px;">Genuine Quality</h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6;">
+              Zero compromises. No opened boxes, no counterfeit cords, and no counterfeit screens. Every item is verified against global databases.
+            </p>
+          </div>
+
+          <div style="background: #FFFFFF; padding: 36px 30px; border-radius: var(--radius-lg); border: 1px solid var(--border-light);">
+            <div style="width: 52px; height: 52px; border-radius: 14px; background: var(--pc-gradient-subtle); color: var(--pc-magenta); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 20px;">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 10px;">Concierge Consultation</h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6;">
+              Our team doesn't push quota. We advise you on the exact device, storage capacity, and ecosystem fit tailored to your workflow and budget.
+            </p>
+          </div>
+
+          <div style="background: #FFFFFF; padding: 36px 30px; border-radius: var(--radius-lg); border: 1px solid var(--border-light);">
+            <div style="width: 52px; height: 52px; border-radius: 14px; background: var(--pc-gradient-subtle); color: var(--pc-magenta); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 20px;">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+            </div>
+            <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 10px;">Warranty Assistance</h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6;">
+              Should any hardware defect occur during your warranty term, we handle diagnostics, manufacturer claims, and swift resolution.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Location & Social CTA -->
+      <div style="text-align: center; max-width: 650px; margin: 0 auto;">
+        <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 14px;">Visit Our Gampola Store</h3>
+        <p style="color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 14px;">
+          Experience our complete smartphone showcase in person at <strong>No 374, Bothalapitiya, Gampola</strong>. Feel titanium chassis finishes, test camera lenses, and speak with our staff.
+        </p>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;">
+          WhatsApp & Call: <strong>077 468 7888</strong>
+        </p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="contact.html" class="btn btn-primary btn-lg">Showroom Directions</a>
+          <a href="https://wa.me/94774687888" target="_blank" class="btn btn-whatsapp btn-lg">
+            <i class="fa-brands fa-whatsapp"></i> Chat: 077 468 7888
+          </a>
+          <a href="https://www.instagram.com/thephoneculture/" target="_blank" class="btn btn-secondary btn-lg">
+            <i class="fa-brands fa-instagram"></i> Follow @thephoneculture
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 Phone Culture Gampola (No 374, Bothalapitiya, Gampola). All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Warranty Guide</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/compare.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>
